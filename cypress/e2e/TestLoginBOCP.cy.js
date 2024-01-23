@@ -1,16 +1,14 @@
-describe('template spec', () => {
+import LoginPage from "../support/PageObject/LoginPage"
+
+describe('Test Login', () => {
   beforeEach(() => {
-    cy.visit('https://samaktamitrapt-dev.outsystemsenterprise.com/SML_BankOfProject_Web/login')
+    LoginPage.visit();
   })
   it('passes', () => {
-    cy.get('input[id=Input_UsernameVal2]').type('sa1')
-    // {enter} causes the form to submit
-    const password = "123456"
-    cy.get('input[id=Input_PasswordVal2]').type(`${password}{enter}`, { log: false })
-    cy.url().should('include', '/')
+    //cy.intercept('https://samaktamitrapt-dev.outsystemsenterprise.com/SML_BankOfProject_Web/login').as('login');
+    cy.wait(6000);
+    LoginPage.fillCredentials("12345", "123456");
+    LoginPage.getErrorMessage("[SMLUser] - invalid username and password")
     cy.viewport(1280, 720)
-  })
-  it('Superadmin Has Manage', () =>{
-    cy.get('span').should('contain', "Manage")
   })
 })
