@@ -4,11 +4,13 @@ describe('Test Login', () => {
   beforeEach(() => {
     LoginPage.visit();
   })
-  it('passes', () => {
-    //cy.intercept('https://samaktamitrapt-dev.outsystemsenterprise.com/SML_BankOfProject_Web/login').as('login');
-    cy.wait(6000);
+  it('Invalid User', () => {
     LoginPage.fillCredentials("12345", "123456");
     LoginPage.getErrorMessage("[SMLUser] - invalid username and password")
+    cy.viewport(1280, 720)
+  })
+  it('Valid User', () => {
+    LoginPage.fillCredentials("sa1", "123456");
     cy.viewport(1280, 720)
   })
 })
