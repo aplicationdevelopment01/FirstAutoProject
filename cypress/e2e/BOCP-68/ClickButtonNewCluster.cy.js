@@ -1,12 +1,12 @@
-import LoginPage from "../support/PageObject/LoginPage"
-import DatePicker from "../support/PageObject/DatePicker"
-import MessageWidget from "../support/PageObject/MessageWidget"
+import LoginPage from "../../support/PageObject/LoginPage"
+import DatePicker from "../../support/PageObject/DatePicker"
+import MessageWidget from "../../support/PageObject/MessageWidget"
 
-describe('Klik button "+ new cluster"', () => {
+describe('Click Button New Cluster', () => {
   beforeEach(() => {
     LoginPage.visit();
   })
-  it('Should New Cluster currently added', () => {
+  it('Should Create new cluster with same kode cluster within the same project', () => {
     cy.viewport(1280, 720)
     LoginPage.fillCredentials("sa1", "123456")
     cy.get('#b2-LinkManage').should('have.text', "Manage")
@@ -36,7 +36,7 @@ describe('Klik button "+ new cluster"', () => {
     cy.get('#b16-SaveNewCluster').click()
     MessageWidget.getWarningMessage("Cluster recently added!")
   })
-  it('Should New Cluster successfully added', () => {
+  it('Should Fill all the data from the form and submit', () => {
     cy.viewport(1280, 720)
     LoginPage.fillCredentials("sa1", "123456")
     cy.get('#b2-LinkManage').should('have.text', "Manage")
