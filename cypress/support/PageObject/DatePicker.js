@@ -6,7 +6,6 @@ class DatePicker{
         cy.get('.flatpickr-calendar.animate.osui-datepicker-calendar.inside-popup.arrowBottom.arrowLeft.open').find('.flatpickr-months > .flatpickr-month > .flatpickr-current-month > select.flatpickr-monthDropdown-months').select(Month)
         cy.get('.flatpickr-calendar.animate.osui-datepicker-calendar.inside-popup.arrowBottom.arrowLeft.open').find('.flatpickr-months > .flatpickr-month > .flatpickr-current-month > .numInputWrapper > .numInput.cur-year').type(Year)
         cy.get('.flatpickr-calendar.animate.osui-datepicker-calendar.inside-popup.arrowBottom.arrowLeft.open > .flatpickr-innerContainer > .flatpickr-rContainer > .flatpickr-days > .dayContainer').find('span[aria-label="'+targetDate+'"]').click()
-        //cy.get('span[aria-label="'+targetDate+'"]').click()
 
     }
 }
