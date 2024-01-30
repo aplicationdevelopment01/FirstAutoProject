@@ -54,6 +54,7 @@ describe('Click Button New Cluster', () => {
     cy.contains('label', 'End Date')
     cy.contains('label', 'Is Active')
 
+    // Fill the input
     cy.wait(2000)
     cy.get('select#b16-Dropdown2').select('GOPEK')
     cy.get('select#b16-Dropdown1').select('High Rise')
@@ -65,5 +66,32 @@ describe('Click Button New Cluster', () => {
 
     cy.get('#b16-SaveNewCluster').click()
     MessageWidget.getSuccessMessage("Cluster Successfully Added!")
+  })
+  it('Should have required field', () => {
+    cy.viewport(1280, 720)
+    LoginPage.fillCredentials("sa1", "123456")
+    cy.get('#b2-LinkManage').should('have.text', "Manage")
+    cy.get('#b2-LinkManage').click()
+    cy.url().should('include', '/SML_BankOfProject_Web/Manage')
+    cy.get('#TabsHeaderItemCluster .osui-tabs__header-item').click()
+    cy.get('#b16-ButtonNewCluster').click()
+    cy.get('#b16-PopupEdit').should('be.visible')
+    cy.contains('label', 'Project')
+    cy.contains('label', 'Building Type')
+    cy.contains('label', 'Cluster Code')
+    cy.contains('label', 'Cluster Name')
+    cy.contains('label', 'Description')
+    cy.contains('label', 'Start Date')
+    cy.contains('label', 'End Date')
+    cy.contains('label', 'Is Active') 
+
+    cy.get('#b16-SaveNewCluster').click()
+    cy.get('#b16-Dropdown2-container').find('span.validation-message').should('be.visible')
+    cy.get('#b16-Dropdown1-container').find('span.validation-message').should('be.visible')
+    cy.get('.input-text > #b16-Input_ProjectCode').next('span.validation-message').should('be.visible')
+    cy.get('.input-text > #b16-Input_ProjectName').next('span.validation-message').should('be.visible')
+    cy.get('span[class=input-date]').find('input[aria-describedby=b16-b4-DatepickerAccessibilityInfo]').next('span.validation-message').should('be.visible')
+    cy.get('span[class=input-date]').find('input[aria-describedby=b16-b5-DatepickerAccessibilityInfo]').next('span.validation-message').should('be.visible')
+
   })
 })
