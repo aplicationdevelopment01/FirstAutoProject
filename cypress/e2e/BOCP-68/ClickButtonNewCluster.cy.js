@@ -68,7 +68,7 @@ describe('Click Button New Cluster', () => {
     cy.contains('label', 'End Date')
     cy.contains('label', 'Is Active')
 
-    // Fill the input bleum
+    // Fill the input heh
     NeCluster.CreateNeCluster(VarIterate)
     //while(MessageWidget.getSuccessMessage("Cluster Successfully Added!")){
       //const VarIterate =+ 1
