@@ -7,7 +7,6 @@ describe('Click Button New Cluster', () => {
     LoginPage.visit();
   })
   it('Should Create new cluster with same kode cluster within the same project', () => {
-    cy.viewport(1280, 720)
     LoginPage.fillCredentials("saihsan@mailnesia.com", "Sml!@345?")
     cy.get('#b2-LinkManage').should('have.text', "Manage")
     cy.get('#b2-LinkManage').click()
@@ -37,21 +36,20 @@ describe('Click Button New Cluster', () => {
   })
   it('Should Fill all the data from the form and submit', () => {
     const VarIterate = 1
-
     class NeCluster{
       CreateNeCluster(Iterate){
-          cy.wait(2000)
-          cy.get('select#b16-Dropdown2').select('GOPEK')
-          cy.get('select#b16-Dropdown1').select('High Rise')
-          cy.get('#b16-Input_ProjectCode').type('0001')
-          cy.get('#b16-Input_ProjectName').type('Cluster Angkasa'+Iterate)
-          cy.get('#b16-Input_Description').type('Ini Description')
-          DatePicker.fillDatePicker("b16-b4-DatepickerAccessibilityInfo", 2025, "February", 21)
-          DatePicker.fillDatePicker("b16-b5-DatepickerAccessibilityInfo", 2025, "February", 22)
-          cy.get('#b16-SaveNewCluster').click()
+        cy.wait(2000)
+        cy.get('select#b16-Dropdown2').select('GOPEK')
+        cy.get('select#b16-Dropdown1').select('High Rise')
+        cy.get('#b16-Input_ProjectCode').type('0001')
+        cy.get('#b16-Input_ProjectName').type('Cluster Angkasa'+Iterate)
+        cy.get('#b16-Input_Description').type('Ini Description')
+        DatePicker.fillDatePicker("b16-b4-DatepickerAccessibilityInfo", 2025, "February", 21)
+        DatePicker.fillDatePicker("b16-b5-DatepickerAccessibilityInfo", 2025, "February", 22)
+        cy.get('#b16-SaveNewCluster').click()
       }
     }
-    cy.viewport(1280, 720)
+
     LoginPage.fillCredentials("saihsan@mailnesia.com", "Sml!@345?")
     cy.get('#b2-LinkManage').should('have.text', "Manage")
     cy.get('#b2-LinkManage').click()
@@ -70,14 +68,13 @@ describe('Click Button New Cluster', () => {
 
     // Fill the input heh
     NeCluster.CreateNeCluster(VarIterate)
-    //while(MessageWidget.getSuccessMessage("Cluster Successfully Added!")){
-      //const VarIterate =+ 1
-     // NeCluster.CreateNeCluster(VarIterate)
-   // }
+    while(MessageWidget.getSuccessMessage("Cluster Successfully Added!")){
+      const VarIterate =+ 1
+      NeCluster.CreateNeCluster(VarIterate)
+    }
     
   })
   it('Should have required field', () => {
-    cy.viewport(1280, 720)
     LoginPage.fillCredentials("saihsan@mailnesia.com", "Sml!@345?")
     cy.get('#b2-LinkManage').should('have.text', "Manage")
     cy.get('#b2-LinkManage').click()
