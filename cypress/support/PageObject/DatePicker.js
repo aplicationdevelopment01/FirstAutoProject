@@ -8,5 +8,10 @@ class DatePicker{
         cy.get('.flatpickr-calendar.animate.osui-datepicker-calendar.inside-popup.arrowBottom.arrowLeft.open > .flatpickr-innerContainer > .flatpickr-rContainer > .flatpickr-days > .dayContainer').find('span[aria-label="'+targetDate+'"]').click()
 
     }
+    fillDatePickerPika(Year, Month, Day){
+        cy.get('select.pika-select.pika-select-month').select(Month)
+        cy.get('select.pika-select.pika-select-year').select(Year)
+        cy.get('#b8-Calendar > .pika-single > .pika-lendar > .pika-table > tbody > tr > td').find('button[data-pika-day='+Day+']').click()
+    }
 }
 export default new DatePicker();
