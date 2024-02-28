@@ -22,7 +22,7 @@ describe('Click Button New Cluster', () => {
     cy.contains('label', 'Start Date')
     cy.contains('label', 'End Date')
     cy.contains('label', 'Is Active')
-    
+    cy.get('.input-text > .form-control ')
     cy.wait(2000)
     cy.get('select#b16-Dropdown2').select('GOPEK')
     cy.get('select#b16-Dropdown1').select('High Rise')
@@ -42,7 +42,7 @@ describe('Click Button New Cluster', () => {
         cy.get('select#b16-Dropdown2').select('GOPEK')
         cy.get('select#b16-Dropdown1').select('High Rise')
         cy.get('#b16-Input_ProjectCode').type('0001')
-        cy.get('#b16-Input_ProjectName').type('Cluster Angkasa'+Iterate)
+        cy.get('#b16-Input_ProjectName').type('Cluster Angkasa '+Iterate)
         cy.get('#b16-Input_Description').type('Ini Description')
         DatePicker.fillDatePicker("b16-b4-DatepickerAccessibilityInfo", 2025, "February", 21)
         DatePicker.fillDatePicker("b16-b5-DatepickerAccessibilityInfo", 2025, "February", 22)
@@ -66,13 +66,13 @@ describe('Click Button New Cluster', () => {
     cy.contains('label', 'End Date')
     cy.contains('label', 'Is Active')
 
-    // Fill the input heh
+    // Fill the input komen aja
     NeCluster.CreateNeCluster(VarIterate)
     while(MessageWidget.getSuccessMessage("Cluster Successfully Added!")){
       const VarIterate =+ 1
       NeCluster.CreateNeCluster(VarIterate)
     }
-    
+  
   })
   it('Should have required field', () => {
     LoginPage.fillCredentials("saihsan@mailnesia.com", "Sml!@345?")
@@ -90,7 +90,6 @@ describe('Click Button New Cluster', () => {
     cy.contains('label', 'Start Date')
     cy.contains('label', 'End Date')
     cy.contains('label', 'Is Active') 
-
     cy.get('#b16-SaveNewCluster').click()
     cy.get('#b16-Dropdown2-container').find('span.validation-message').should('be.visible')
     cy.get('#b16-Dropdown1-container').find('span.validation-message').should('be.visible')
@@ -98,7 +97,6 @@ describe('Click Button New Cluster', () => {
     cy.get('.input-text > #b16-Input_ProjectName').next('span.validation-message').should('be.visible')
     cy.get('span[class=input-date]').find('input[aria-describedby=b16-b4-DatepickerAccessibilityInfo]').next('span.validation-message').should('be.visible')
     cy.get('span[class=input-date]').find('input[aria-describedby=b16-b5-DatepickerAccessibilityInfo]').next('span.validation-message').should('be.visible')
-
   })
 })
 
