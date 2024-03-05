@@ -56,7 +56,7 @@ describe('Click Button New Cluster', () => {
     cy.contains('label', 'End Date')
     cy.contains('label', 'Is Active')
 
-    // Fill the input komen aja
+    // Fill the input komen aja ini fitur apa
     NewCluster.CreateNeCluster(VarIterate)
     let IsRecentlyAdded = MessageWidget.getWarningMessage("Cluster recently added!")
     if(IsRecentlyAdded){
