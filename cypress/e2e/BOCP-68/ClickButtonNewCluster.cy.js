@@ -38,8 +38,6 @@ describe('Click Button New Cluster', () => {
   it('Should Fill all the data from the form and submit', () => {
     const VarIterate = 1
     
-    
-
     LoginPage.fillCredentials("saihsan@mailnesia.com", "123")
     cy.get('#b2-LinkManage').should('have.text', "Manage")
     cy.get('#b2-LinkManage').click()
@@ -57,16 +55,8 @@ describe('Click Button New Cluster', () => {
     cy.contains('label', 'Is Active')
 
     // Fill the input komen aja ini fitur apa daas
-    NewCluster.CreateNeCluster(VarIterate)
-    let IsRecentlyAdded = MessageWidget.getWarningMessage("Cluster recently added!")
-    if(IsRecentlyAdded){
-      
-    }
-    do{
-      const VarIterate =+ 1
-      NewCluster.CreateNeCluster(VarIterate)
-    }while(MessageWidget.getWarningMessage("Cluster recently added!"))
-  
+    NewCluster.CreateNeCluster()
+
   })
   // it('Should have required field', () => {
   //   LoginPage.fillCredentials("saihsan@mailnesia.com", "Sml!@345?")

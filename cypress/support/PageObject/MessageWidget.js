@@ -3,7 +3,7 @@ class MessageWidget{
         cy.get('.feedback-message-error .feedback-message-text').should('have.text', errorMsg)
       }
     getWarningMessage(errorMsg) {
-        cy.get('.feedback-message-warning .feedback-message-text').should('have.text', errorMsg)
+        cy.get('.feedback-message-warning .feedback-message-text').should('have.text', errorMsg).should('be.visible')
       }
     getSuccessMessage(errorMsg) {
         cy.get('.feedback-message-success .feedback-message-text').should('have.text', errorMsg)
