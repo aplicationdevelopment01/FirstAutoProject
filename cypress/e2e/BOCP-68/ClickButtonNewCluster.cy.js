@@ -58,14 +58,6 @@ describe('Click Button New Cluster', () => {
 
     // Fill the input komen aja ini fitur apa daas
     NewCluster.CreateNeCluster(VarIterate)
-    let IsRecentlyAdded = MessageWidget.getWarningMessage("Cluster recently added!")
-    if(IsRecentlyAdded){
-      
-    }
-    do{
-      const VarIterate =+ 1
-      NewCluster.CreateNeCluster(VarIterate)
-    }while(MessageWidget.getWarningMessage("Cluster recently added!"))
   
   })
   // it('Should have required field', () => {
