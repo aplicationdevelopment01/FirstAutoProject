@@ -4,7 +4,10 @@ describe('template spec', () => {
     cy.wait(1000)
     cy.get('input#Input_Date').type('2024-01-01')
     //cy.get('#UploadBinary > input[type=file]', { force: true }).selectFile('../../Cypress/FirstAutoProject/cypress/e2e/TestJanu/logo-ct.png')
-    cy.get('#UploadBinary').selectFile('../../Cypress/FirstAutoProject/cypress/e2e/TestJanu/logo-ct.png')
+    cy.fixture('logo-ct').then((logo) => {
+      cy.get('#UploadBinary').selectFile(logo)
+    })
+    //cy.get('#UploadBinary').selectFile('../../Cypress/FirstAutoProject/cypress/e2e/TestJanu/logo-ct.png')
     cy.get('input#Input_Date').type('2024-02-01')
   })
 })
